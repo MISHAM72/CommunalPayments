@@ -119,6 +119,20 @@ class KomunalkaApp {
 }
 
 
+    // Метод для загрузки данных из файла
+    private List<String> loadHistoryFromFile() throws IOException {
+        List<String> history = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("запись.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                history.add(line);
+            }
+        }
+        return history;
+    }
+
+    //----------------------------------------
+}
 //      Класс, занимающийся исключительно
 //      расчетами расхода электроэнергии
 class KomunalkaCalculator {
