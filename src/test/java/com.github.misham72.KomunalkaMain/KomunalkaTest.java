@@ -41,8 +41,7 @@ class KomunalkaApp {
         frame.setSize(1000, 250);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new FlowLayout());
-
-        // Создаем элементы интерфейса
+        addressLabel = new JLabel(" г. Абинск, ул. Майкопскя, 10. ");
         currentDataField = new JTextField(5);
         previousDataField = new JTextField(5);
         tariffField = new JTextField(5);
