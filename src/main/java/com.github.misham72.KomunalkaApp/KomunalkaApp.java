@@ -43,18 +43,15 @@ public class KomunalkaApp {
         frame.setLayout(new FlowLayout());
 
 
-        // Создаем объекты (элементы интерфейса)
-        currentDataField = new JTextField(5);
-        previousDataField = new JTextField(5);
-        tariffField = new JTextField(5);
+        // Создаем объекты (элементы интерфейс(5);
 
+        currentDataField = new JTextField(5);
+        previousDataField = new JTextField();
+        tariffField = new JTextField(5);
         consumptionLabel = new JLabel("Расход: -");
         paymentLabel = new JLabel("К оплате: -");
         dateTimeLabel = new JLabel("Дата и время операции: -");
-
-        //1. — создаём объект кнопки и присваиваем переменной.
         calculateButton = new JButton("Рассчитать");
-        //1. — задаём настройки (например, цвет фона).
         calculateButton.setBackground(Color.green);
 
 
