@@ -20,8 +20,6 @@ public class KomunalkaApp {
     private JLabel consumptionLabel;
     private JLabel paymentLabel;
     private JLabel dateTimeLabel;
-    //1. — переменная создаётся на уровне класса
-    // (глобальная, в памяти общий доступ).
     private JButton calculateButton;
     private JButton showHistoryButton;
 
@@ -53,7 +51,8 @@ public class KomunalkaApp {
         dateTimeLabel = new JLabel("Дата и время операции: -");
         calculateButton = new JButton("Рассчитать");
         calculateButton.setBackground(Color.green);
-
+        showHistoryButton = new JButton("Показать историю");
+        showHistoryButton.setBackground(Color.orange);
 
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Файл");
@@ -63,10 +62,7 @@ public class KomunalkaApp {
         menuBar.add(menu );
         frame.setJMenuBar(menuBar);
 
-        // Кнопка для отображения истории
-        showHistoryButton = new JButton("Показать историю");
-        showHistoryButton.setBackground(Color.orange);
-        frame.add(showHistoryButton);
+
 
 
         frame.add(new JLabel("Текущие показания (кВт/ч):"));
@@ -78,19 +74,19 @@ public class KomunalkaApp {
         frame.add(consumptionLabel);
         frame.add(paymentLabel);
         frame.add(dateTimeLabel);
-        // — добавляем кнопку в окно (`JFrame`)для отображения.
         frame.add(calculateButton);
+        frame.add(showHistoryButton);
 
     }
 
     private void setupActionListeners() {
 
-        //1. — вешаем действие, которое выполняется после нажатия на кнопку
-        calculateButton.addActionListener(_ -> handleCalculation());
-        showHistoryButton.addActionListener(_ -> loadHistory());
+        // — вешаем действие, которое выполняется после нажатия на кнопку
         currentDataField.addActionListener(_ -> previousDataField.requestFocus());
         previousDataField.addActionListener(_ -> tariffField.requestFocus());
         tariffField.addActionListener(_ -> handleCalculation());
+        calculateButton.addActionListener(_ -> handleCalculation());
+        showHistoryButton.addActionListener(_ -> loadHistory());
     }
 
     private void showFrame() {
