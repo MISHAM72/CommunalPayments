@@ -44,7 +44,7 @@ public class KomunalkaApp {
         // Создаем объекты (элементы интерфейс(5);
 
         currentDataField = new JTextField(5);
-        previousDataField = new JTextField();
+        previousDataField = new JTextField(5);
         tariffField = new JTextField(5);
         consumptionLabel = new JLabel("Расход: -");
         paymentLabel = new JLabel("К оплате: -");
