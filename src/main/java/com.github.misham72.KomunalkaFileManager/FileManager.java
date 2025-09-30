@@ -1,19 +1,19 @@
 package com.github.misham72.KomunalkaFileManager;
-
-import java.io.FileWriter;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 
   // Класс для работы с файлами (`FileManager`)**
      public class FileManager {
       // Метод для сохранения результатов в файл
-      public void saveToFile(double currentReading, double previousReading,
-                             double consumption, double tariff,
+      public void saveToFile(String fileName,
+                             double currentReading, double previousReading,
+                         double consumption, double tariff,
                              double payment, String dateTime) throws IOException {
-          try (FileWriter writer = new FileWriter("запись.txt", true)) {
-              String format = String.format(
+
+              String data = String.format(
                       """
                                    Дата и время операции: %s
                                     Текущие показания: %.2f кВт
@@ -21,28 +21,14 @@ import java.nio.file.Paths;
                                            Расход:   %.2f кВт
                                            Тариф:    %.2f руб.кВт
                                            Сумма оплаты: %.2f руб.
+                                            (%s)
+                              
                               """
-                      , dateTime, currentReading, previousReading, consumption, tariff, payment);
+                      , dateTime, currentReading, previousReading, consumption, tariff, payment, dateTime);
+          Files.write(Paths.get(fileName), data.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 
-              writer.write(format);
-          }
       }
-      // Новый метод для загрузки истории из файла
-      public String loadFromFile() throws IOException {
-          Path path = Paths.get("запись.txt");
-
-          // Проверяем, существует ли файл
-          if (!Files.exists(path)) {
-              return ""; // Если файла нет, возвращаем пустую строку
-          }
-
-          // Читаем содержимое файла и возвращаем его как строку
-          return Files.readString(path);
-      }
-  }
-
-
-
-
-
-
+         public String loadFromFile(String fileName) throws IOException {
+             return Files.readString(Paths.get(fileName));
+         }
+     }
