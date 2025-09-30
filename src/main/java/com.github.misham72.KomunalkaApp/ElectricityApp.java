@@ -29,7 +29,9 @@ public class ElectricityApp extends JPanel{
             JLabel paymentLabel = new JLabel("К оплате: -");
             JLabel dateTimeLabel = new JLabel("Дата и время последней операции: -");
             JButton calculateButton = new JButton("Рассчитать");
+            calculateButton.setBackground(Color.green);
             JButton showHistoryButton = new JButton("Показать историю");
+            showHistoryButton.setBackground(Color.getHSBColor(0.99f,0.98f, 0.98f));
 
             // Добавляем компоненты в панель
             add(new JLabel("Текущие показания:"));
