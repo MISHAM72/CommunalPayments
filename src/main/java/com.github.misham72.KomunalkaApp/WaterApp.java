@@ -29,7 +29,9 @@ public class WaterApp extends JPanel{
             JLabel paymentLabel = new JLabel("К оплате: -");
             JLabel dateTimeLabel = new JLabel("Дата и время последней операции: -");
             JButton calculateButton = new JButton("Рассчитать");
+            calculateButton.setBackground(Color.green);
             JButton showHistoryButton = new JButton("Показать историю");
+            showHistoryButton.setBackground(Color.getHSBColor(0.5f,0.5f, 0.8f));
 
             // Добавляем компоненты в панель
             add(new JLabel("Текущие показания:"));
@@ -45,6 +47,9 @@ public class WaterApp extends JPanel{
             add(calculateButton);
             add(showHistoryButton);
 
+            currentDataField.addActionListener(_ -> previousDataField.requestFocus());
+            previousDataField.addActionListener(_ -> tariffField.requestFocus());
+            tariffField.addActionListener(_-> calculateButton.doClick ());
             // Логика кнопки "Рассчитать"
             calculateButton.addActionListener(_-> {
                 try {

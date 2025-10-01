@@ -47,6 +47,10 @@ public class GasApp extends JPanel {
             add(calculateButton);
             add(showHistoryButton);
 
+            currentDataField.addActionListener(_ -> previousDataField.requestFocus());
+            previousDataField.addActionListener(_ -> tariffField.requestFocus());
+            tariffField.addActionListener(_->  calculateButton.doClick());
+
             // Логика кнопки "Рассчитать"
             calculateButton.addActionListener(_ -> {
                 try {
