@@ -15,13 +15,16 @@ public class KomunalkaApp {
         // Создаём панели вкладок
         JTabbedPane tabbedPane = new JTabbedPane();
 
+
         // Добавляем вкладки (импорты классов для каждой панели)
         tabbedPane.addTab("Электричество", new ElectricityApp());
         tabbedPane.addTab("Газ", new GasApp());
         tabbedPane.addTab("Вода", new WaterApp());
 
+
         // Добавляем TabbedPane в окно
         frame.add(tabbedPane, BorderLayout.CENTER);
+
 
         // Отображаем фрейм
         frame.setVisible(true);

@@ -93,14 +93,14 @@ public class WaterApp extends JPanel{
                 try {
                     String history = fileManager.loadFromFile(fileName);
                     if (history.isEmpty()) {
-                        JOptionPane.showMessageDialog(this, "История пуста для ресурса: Электричество", "Информация", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "История пуста для ресурса: Вода", "Информация", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JTextArea textArea = new JTextArea(20, 50);
                         textArea.setText(history);
                         textArea.setEditable(false);
 
                         JScrollPane scrollPane = new JScrollPane(textArea);
-                        JOptionPane.showMessageDialog(this, scrollPane, "История (Электричество)", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(this, scrollPane, "История (Вода)", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(this, "Ошибка загрузки истории: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
