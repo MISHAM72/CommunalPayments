@@ -13,7 +13,7 @@ public class ElectricityApp extends JPanel {
 
     private final KomunalkaCalculator calculator;
     private final FileManager fileManager;
-    private final String fileName = "electricity.txt";
+    private final String fileName = "Свет.txt";
 
     public ElectricityApp() {
         this.calculator = new KomunalkaCalculator();
@@ -23,15 +23,30 @@ public class ElectricityApp extends JPanel {
 
         // Компоненты интерфейса
         JTextField currentDataField = new JTextField();
+
         JTextField previousDataField = new JTextField();
+
         JTextField tariffField = new JTextField();
+
         JLabel consumptionLabel = new JLabel("Расход: -");
+        consumptionLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        consumptionLabel.setForeground(Color.red);
+
         JLabel paymentLabel = new JLabel("К оплате: -");
+        paymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        paymentLabel.setForeground(Color.red);
+
         JLabel dateTimeLabel = new JLabel("Дата и время последней операции: -");
+        dateTimeLabel.setFont(new Font("Arial", Font.BOLD, 16));
+
         JButton calculateButton = new JButton("Рассчитать");
         calculateButton.setBackground(Color.green);
+        calculateButton.setFont(new Font("Arial", Font.BOLD, 16));
+
         JButton showHistoryButton = new JButton("Показать историю");
-        showHistoryButton.setBackground(Color.getHSBColor(0.99f, 0.98f, 0.98f));
+        showHistoryButton.setBackground(Color.getHSBColor(0.99f, 0.29f, 0.94f));
+        showHistoryButton.setFont(new Font("Arial", Font.BOLD, 16));
+
 
         // Добавляем компоненты в панель
         add(new JLabel("Текущие показания:"));
@@ -67,7 +82,7 @@ public class ElectricityApp extends JPanel {
                 dateTimeLabel.setText("Дата и время последней операции: " + formattedDateTime);
 
                 // Сохраняем данные
-                fileManager.saveToFile(fileName, currentReading, previousReading, tariff, consumption, payment, formattedDateTime);
+                fileManager.saveToFile(fileName, formattedDateTime, currentReading, previousReading, tariff, consumption, payment );
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Введите корректные числа!", "Ошибка", JOptionPane.ERROR_MESSAGE);
             } catch (IOException ex) {

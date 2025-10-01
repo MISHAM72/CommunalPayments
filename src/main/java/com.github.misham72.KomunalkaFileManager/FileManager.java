@@ -8,14 +8,14 @@ import java.nio.file.Files;
   // Класс для работы с файлами (`FileManager`)**
      public class FileManager {
       // Метод для сохранения результатов в файл
-      public void saveToFile(String fileName,
+      public void saveToFile(String fileName, String dateTime,
                              double currentReading, double previousReading,
                          double consumption, double tariff,
-                             double payment, String dateTime) throws IOException {
+                             double payment) throws IOException {
 
               String data = String.format(
                       """
-                                   Дата и время операции: %s
+                                   Услуга: %s
                                     Текущие показания: %.2f кВт
                                        Предыдущие показания: %.2f кВт
                                            Расход:   %.2f кВт
