@@ -77,6 +77,7 @@ public class ElectricityApp extends JPanel {
 
                 // Обновляем данные на экране
                 String formattedDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+
                 consumptionLabel.setText(String.format("Расход: %.2f", consumption));
                 paymentLabel.setText(String.format("К оплате: %.2f руб.", payment));
                 dateTimeLabel.setText("Дата и время последней операции: " + formattedDateTime);
@@ -95,14 +96,14 @@ public class ElectricityApp extends JPanel {
             try {
                 String history = fileManager.loadFromFile(fileName);
                 if (history.isEmpty()) {
-                    JOptionPane.showMessageDialog(this, "История пуста для ресурса: Электричество", "Информация", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "История пуста для ресурса: Свет", "Информация", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JTextArea textArea = new JTextArea(20, 50);
                     textArea.setText(history);
                     textArea.setEditable(false);
 
                     JScrollPane scrollPane = new JScrollPane(textArea);
-                    JOptionPane.showMessageDialog(this, scrollPane, "История (Электричество)", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, scrollPane, "История (Свет)", JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, "Ошибка загрузки истории: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
