@@ -12,7 +12,7 @@ import java.nio.file.Files;
                              double currentReading, double previousReading,
                          double consumption, double tariff,
                              double payment) throws IOException {
-
+          System.out.println("г. Абинск, ул. Майкопская,10 ");
               String data = String.format(
                       """
                                    Услуга: %s
