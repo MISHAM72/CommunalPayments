@@ -24,7 +24,7 @@ import java.nio.file.Files;
                                             (%s)
                               
                               """
-                      , dateTime, currentReading, previousReading, consumption, tariff, payment, dateTime);
+                      , fileName, currentReading, previousReading, consumption, tariff, payment, dateTime);
           Files.write(Paths.get(fileName), data.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 
       }
