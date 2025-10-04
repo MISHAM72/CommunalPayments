@@ -35,6 +35,7 @@ public class KomunalkaApp {
         frame.add(tabbedPane, BorderLayout.CENTER);
 
 
+
         // Отображаем фрейм
         frame.setVisible(true);
     }
