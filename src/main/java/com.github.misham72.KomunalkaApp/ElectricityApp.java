@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
 public class ElectricityApp extends JPanel {
 
     private final KomunalkaCalculator calculator;
@@ -20,6 +21,7 @@ public class ElectricityApp extends JPanel {
         this.fileManager = new FileManager();
 
         setLayout(new GridLayout(7, 2, 10, 10));
+
 
         // Компоненты интерфейса
         JTextField currentDataField = new JTextField();
@@ -65,6 +67,7 @@ public class ElectricityApp extends JPanel {
         currentDataField.addActionListener(_ -> previousDataField.requestFocus());
         previousDataField.addActionListener(_ -> tariffField.requestFocus());
         tariffField.addActionListener(_ -> calculateButton.doClick()); //  <-- Имитируем клик по кнопке
+
         calculateButton.addActionListener(_ -> {
             try {
                 double currentReading = Double.parseDouble(currentDataField.getText());

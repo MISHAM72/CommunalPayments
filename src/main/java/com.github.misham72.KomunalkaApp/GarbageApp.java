@@ -1,31 +1,23 @@
 package com.github.misham72.KomunalkaApp;
 
-import com.github.misham72.KomunalkaCalculator.KomunalkaCalculator;
-import com.github.misham72.KomunalkaFileManager.FileManager;
-
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
 
 public class GarbageApp extends JPanel {
-    private final KomunalkaCalculator calculator;
-    private final FileManager fileManager;
-    private final String fileName = "МТС";
-
-
 
     public GarbageApp() {
-        this.calculator = new KomunalkaCalculator();
-        this.fileManager = new FileManager();
+
+        LocalDate startDate = LocalDate.of(2025, 7, 6);
+        long days = DateCalculator.getDaysWithArrive(startDate);
+
         setLayout(new GridLayout(7, 2, 10, 10));
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JLabel dayOfPaymentLabel = new JLabel(" Оплата - после приезда домой. ");
-        dayOfPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        JLabel costOfPaymentLabel = new JLabel(" Стоимость услуги - не помню. ");
-        costOfPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
-
-        add(dayOfPaymentLabel);
-        add(costOfPaymentLabel);
-
-
+        JLabel daysFromArrive = new JLabel("С даты приезда в Москву прошло - " + days + " дней. ");
+        daysFromArrive.setFont(new Font("Arial",Font.BOLD,16));
+        daysFromArrive.setForeground(Color.getHSBColor(0.8f,0.9f,0.8f));
+        add(daysFromArrive);
     }
 }
+
