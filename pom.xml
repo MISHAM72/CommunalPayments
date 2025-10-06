@@ -29,7 +29,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.github.misham72.KomunalkaMain.KOMUNALKA</mainClass>
+                            <mainClass>com.github.misham72.KomunalkaMain.KomunalkaMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

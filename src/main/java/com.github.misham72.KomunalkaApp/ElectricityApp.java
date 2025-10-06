@@ -10,18 +10,20 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
+///
 public class ElectricityApp extends JPanel {
 
     private final KomunalkaCalculator calculator;
     private final FileManager fileManager;
     private final String fileName = "Свет.txt";
-
+///
     public ElectricityApp() {
         this.calculator = new KomunalkaCalculator();
         this.fileManager = new FileManager();
+       // showMessageDialog();
 
         setLayout(new GridLayout(7, 2, 10, 10));
-
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Добавляем отступы
 
         // Компоненты интерфейса
         JTextField currentDataField = new JTextField();
@@ -86,7 +88,7 @@ public class ElectricityApp extends JPanel {
                 dateTimeLabel.setText("Дата и время последней операции: " + formattedDateTime);
 
                 // Сохраняем данные
-                fileManager.saveToFile(fileName, formattedDateTime, currentReading, previousReading, tariff, consumption, payment );
+                fileManager.saveToFile(fileName, formattedDateTime, currentReading, previousReading, tariff, consumption, payment);
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Введите корректные числа!", "Ошибка", JOptionPane.ERROR_MESSAGE);
             } catch (IOException ex) {
@@ -113,4 +115,5 @@ public class ElectricityApp extends JPanel {
             }
         });
     }
+
 }

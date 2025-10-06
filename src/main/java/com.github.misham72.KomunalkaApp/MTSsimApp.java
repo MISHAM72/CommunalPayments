@@ -6,29 +6,30 @@ import java.awt.*;
 public class MTSsimApp extends JPanel {
 
     public MTSsimApp() {
-    long days = DateCalculator.getDaysNextPayment(23);
-    long price = 905;
-    long days1 = DateCalculator.getDaysPreviousPayment(23);
+    long daysUntilPayment = DateCalculator.calculateDays(1, 23, false);
+    long priceTariff = 905;
+    long daysFromPayment = DateCalculator.calculateDays(1, 23, true);
+
 
         setLayout(new GridLayout(7, 2, 10, 10));
 
-        JLabel mtsDaylabel = new JLabel(" Оплата через -" + days + " дней.");
-        mtsDaylabel.setFont(new Font("Arial", Font.BOLD, 16));
-        mtsDaylabel.setForeground(Color.red);
-        add(mtsDaylabel);
+        JLabel daysUntilPaymentLabel = new JLabel(" Оплата через - " + daysUntilPayment + " дней.");
+        daysUntilPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        daysUntilPaymentLabel.setForeground(Color.red);
+        add(daysUntilPaymentLabel);
 
-        JLabel mtsPriceLabel = new JLabel("Стоимость тарифа: " + price + " рублей. ");
-        mtsPriceLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        add(mtsPriceLabel);
+        JLabel daysFromPaymentLabel = new JLabel("С момента оплаты прошло " + daysFromPayment + " дней,");
+        daysFromPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        daysFromPaymentLabel.setForeground(Color.blue);
+        add(daysFromPaymentLabel);
         add(new JLabel());
 
-        JLabel PreviousDayLabel = new JLabel("С момента оплаты прошло " + days1 + " дней,");
-        PreviousDayLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        PreviousDayLabel.setForeground(Color.blue);
-        add(PreviousDayLabel);
+        JLabel priceTariffLabel = new JLabel("Стоимость тарифа: " + priceTariff + " рублей. ");
+        priceTariffLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        add(priceTariffLabel);
         add(new JLabel());
 
-        JLabel dayOfPaymentLabel = new JLabel(" Оплата - 23-го числа,каждого месяца. ");
+        JLabel dayOfPaymentLabel = new JLabel("Оплата - 23-го числа,каждого месяца. ");
         dayOfPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
         add(dayOfPaymentLabel);
         add(new JLabel());

@@ -6,25 +6,25 @@ import java.awt.*;
 public class TINKOFFsimApp extends JPanel {
 
     public TINKOFFsimApp() {
-        long days = DateCalculator.getDaysNextPayment(23);
-        long price = 402;
-        long days1 = DateCalculator.getDaysPreviousPayment(23);
+        long daysUntilPayment = DateCalculator.calculateDays(1, 23, false);
+        long priceTariff = 402;
+        long daysFromPayment = DateCalculator.calculateDays(1, 23, true);
         setLayout(new GridLayout(7, 2, 10, 10));
 
-        JLabel tinkoffDaylabel = new JLabel(" Оплата через -" + days + " дней.");
-        tinkoffDaylabel.setFont(new Font("Arial", Font.BOLD, 16));
-        tinkoffDaylabel.setForeground(Color.red);
-        add(tinkoffDaylabel);
+        JLabel daysUntilPaymentLabel = new JLabel(" Оплата через -" + daysUntilPayment + " дней.");
+        daysUntilPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        daysUntilPaymentLabel.setForeground(Color.red);
+        add(daysUntilPaymentLabel);
+
+        JLabel daysFromPaymentLabel = new JLabel("С момента оплаты прошло " + daysFromPayment + " дней,");
+        daysFromPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        daysFromPaymentLabel.setForeground(Color.blue);
+        add(daysFromPaymentLabel);
         add(new JLabel());
 
-        JLabel tinkoffPriceLabel = new JLabel("Стоимость тарифа: " + price + " рублей. ");
-        tinkoffPriceLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        add(tinkoffPriceLabel);
-
-        JLabel PreviousDayLabel = new JLabel("С момента оплаты прошло " + days1 + " дней,");
-        PreviousDayLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        PreviousDayLabel.setForeground(Color.blue);
-        add(PreviousDayLabel);
+        JLabel priceTariffLabel = new JLabel("Стоимость тарифа: " + priceTariff + " рублей. ");
+        priceTariffLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        add(priceTariffLabel);
         add(new JLabel());
 
         JLabel dayOfPaymentLabel = new JLabel(" Оплата - 23-го числа,каждого месяца. ");

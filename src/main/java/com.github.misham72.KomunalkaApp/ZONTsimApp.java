@@ -5,30 +5,31 @@ import java.awt.*;
 
 public class ZONTsimApp  extends JPanel {
     public ZONTsimApp() {
-        long days = DateCalculator.getDaysNextPayment(30);
-        long price = 120;
-        long days1 = DateCalculator.getDaysPreviousPayment(30);
+        long daysUntilPayment = DateCalculator.calculateDays(1, 30, false);
+        long daysFromPayment = DateCalculator.calculateDays(1, 30, true);
+        long priceTariff = 120;
+        long dayOfPayment= 30;
 
         setLayout(new GridLayout(7, 2, 10, 10));
-        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Добавляем отступы
+        setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Добавляем отступы
 
-        JLabel ZontDaylabel = new JLabel(" Оплата через -" + days + " дней.");
-        ZontDaylabel.setFont(new Font("Arial", Font.BOLD, 16));
-        ZontDaylabel.setForeground(Color.red);
-        add(ZontDaylabel);
+        JLabel daysUntilPaymentLabel = new JLabel(" Оплата через - " + daysUntilPayment + " дней.");
+        daysUntilPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        daysUntilPaymentLabel.setForeground(Color.red);
+        add(daysUntilPaymentLabel);
 
-        JLabel ZontPriceLabel = new JLabel("Стоимость тарифа: " + price + " рублей. ");
-        ZontPriceLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        add(ZontPriceLabel);
+        JLabel daysFromPaymentLabel = new JLabel("С момента оплаты прошло - " + daysFromPayment + " дней,");
+        daysFromPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        daysFromPaymentLabel.setForeground(Color.blue);
+        add(daysFromPaymentLabel);
         add(new JLabel());
 
-        JLabel PreviousDayLabel = new JLabel("С момента оплаты прошло " + days1 + " дней,");
-        PreviousDayLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        PreviousDayLabel.setForeground(Color.blue);
-        add(PreviousDayLabel);
+        JLabel priceTariffLabel = new JLabel("Стоимость тарифа: " + priceTariff + " рублей. ");
+        priceTariffLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        add(priceTariffLabel);
         add(new JLabel());
 
-        JLabel dayOfPaymentLabel = new JLabel(" Оплата - 30-го числа,каждого месяца. ");
+        JLabel dayOfPaymentLabel = new JLabel("Оплата " + dayOfPayment + "-го числа,каждого месяца. ");
         dayOfPaymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
         add(dayOfPaymentLabel);
         add(new JLabel());
@@ -39,5 +40,6 @@ public class ZONTsimApp  extends JPanel {
         add(new JLabel());
     }
 }
+
 
 
