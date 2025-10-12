@@ -4,17 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
 
-public class RouterApp extends JPanel {
+public class OsagoAvto extends JPanel {
 
-	public RouterApp() {
-
-
+	public OsagoAvto() {
 		LocalDate date = LocalDate.now();
-		long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(1, 30);
-		long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(1, 30);
-		LocalDate nextPayment = DateCalculator.getNextPaymentDate(1, 30);
-		LocalDate previousPayment = DateCalculator.getPreviousPaymentDate(1, 30);
-		long priceTariff = 950;
+		long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(12, 27);
+		long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(12, 27);
+		LocalDate nextPayment = DateCalculator.getNextPaymentDate(12, 27);
+		LocalDate previousPayment = DateCalculator.getPreviousPaymentDate(12, 27);
+		long priceTariff = 3050;
 
 
 		setLayout(new GridLayout(7, 2, 10, 10));
@@ -61,4 +59,3 @@ public class RouterApp extends JPanel {
 	}
 
 }
-

@@ -4,17 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
 
-public class RouterApp extends JPanel {
+public class TINKOFFsimApp extends JPanel {
 
-	public RouterApp() {
-
+	public TINKOFFsimApp() {
 
 		LocalDate date = LocalDate.now();
-		long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(1, 30);
-		long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(1, 30);
-		LocalDate nextPayment = DateCalculator.getNextPaymentDate(1, 30);
-		LocalDate previousPayment = DateCalculator.getPreviousPaymentDate(1, 30);
-		long priceTariff = 950;
+		long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(1, 23);
+		long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(1, 23);
+		LocalDate nextPayment = DateCalculator.getNextPaymentDate(1, 23);
+		LocalDate previousPayment = DateCalculator.getPreviousPaymentDate(1, 23);
+		long priceTariff = 402;
 
 
 		setLayout(new GridLayout(7, 2, 10, 10));
@@ -61,4 +60,3 @@ public class RouterApp extends JPanel {
 	}
 
 }
-

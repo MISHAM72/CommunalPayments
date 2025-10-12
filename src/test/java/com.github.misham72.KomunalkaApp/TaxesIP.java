@@ -4,17 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
 
-public class RouterApp extends JPanel {
-
-	public RouterApp() {
-
-
+public class TaxesIP extends JPanel {
+	public TaxesIP() {
 		LocalDate date = LocalDate.now();
-		long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(1, 30);
-		long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(1, 30);
-		LocalDate nextPayment = DateCalculator.getNextPaymentDate(1, 30);
-		LocalDate previousPayment = DateCalculator.getPreviousPaymentDate(1, 30);
-		long priceTariff = 950;
+		long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(3, 30);
+		long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(3, 30);
+		LocalDate nextPayment = DateCalculator.getNextPaymentDate(3, 30);
+		LocalDate previousPayment = DateCalculator.getPreviousPaymentDate(3, 30);
+		long priceTariff = 13414;
 
 
 		setLayout(new GridLayout(7, 2, 10, 10));
@@ -55,10 +52,9 @@ public class RouterApp extends JPanel {
 
 		JLabel priceTariffLabel = new JLabel(" Стоимость тарифа: " + priceTariff + " рублей. ");
 		priceTariffLabel.setFont(new Font("Arial", Font.BOLD, 16));
-		priceTariffLabel.setForeground(Color.getHSBColor(0.9f, 0.85f, 0.8f));
+		priceTariffLabel.setForeground(Color.getHSBColor(0.9f, 0.85f, 0.85f));
 		add(priceTariffLabel);
 		add(new JLabel());
 	}
 
 }
-

@@ -1,13 +1,10 @@
 package com.github.misham72.KomunalkaApp;
 
-
 import javax.swing.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-
 public class DateCalculator extends JPanel {
-
 
 	public static LocalDate getNextPaymentDate(int monthsPeriod, int paymentDay) {
 		LocalDate today = LocalDate.now();
@@ -21,6 +18,17 @@ public class DateCalculator extends JPanel {
 	}
 
 
+
+
+
+	/* ....................................................................................................*/
+//	private static LocalDate findNextPaymentDate(LocalDate today, int monthsPeriod, int paymentDay) {
+
+	//return alignToPeriodEnd(today, monthsPeriod, paymentDay);
+	//}
+
+
+	/* .....................................................................................................*/
 	public static long calculateDaysToNextPayment(int monthsPeriod, int paymentDay) {
 		LocalDate today = LocalDate.now();
 		LocalDate nextPayment = alignToPeriodEnd(today, monthsPeriod, paymentDay);
@@ -28,7 +36,6 @@ public class DateCalculator extends JPanel {
 	}
 
 
-	/* ....................................................................................................*/
 	private static LocalDate alignToPeriodEnd(LocalDate today, int monthsPeriod, int paymentDay) {
 		int currentMonth = today.getMonthValue();/* текущий месяц */
 		int currentYear = today.getYear();
@@ -41,6 +48,7 @@ public class DateCalculator extends JPanel {
 		return periodEnd;
 	}
 
+
 	/* ***************************************************************************************************** */
 
 
@@ -51,7 +59,16 @@ public class DateCalculator extends JPanel {
 	}
 
 
-	/*.................................................................................................*/
+	/* .................................................................................................*/
+	/*private static LocalDate findPreviousPaymentDate(LocalDate today, int monthsPeriod, int paymentDay) {
+
+		LocalDate previousPaymentNul = today.withDayOfMonth(Math.min(paymentDay, today.lengthOfMonth()));
+
+		return alignToPeriodStart(previousPaymentNul, monthsPeriod, paymentDay);
+	}*/
+	/* .................................................................................................*/
+
+
 	private static LocalDate alignToPeriodStart(LocalDate today, int monthsPeriod, int paymentDay) {
 		int currentMonth = today.getMonthValue();
 		int currentYear = today.getYear();
@@ -71,37 +88,6 @@ public class DateCalculator extends JPanel {
 		return periodStart;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

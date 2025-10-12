@@ -7,7 +7,6 @@ import java.time.LocalDate;
 public class MTSsimApp extends JPanel {
 
     public MTSsimApp() {
-
         LocalDate date = LocalDate.now();
         long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(1, 23);
         long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(1, 23);
@@ -58,9 +57,8 @@ public class MTSsimApp extends JPanel {
         add(priceTariffLabel);
         add(new JLabel());
     }
+
 }
-
-
 
 
 

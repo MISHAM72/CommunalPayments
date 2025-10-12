@@ -8,7 +8,6 @@ public class RouterApp extends JPanel {
 
 	public RouterApp() {
 
-
 		LocalDate date = LocalDate.now();
 		long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(1, 30);
 		long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(1, 30);
@@ -61,4 +60,10 @@ public class RouterApp extends JPanel {
 	}
 
 }
+
+
+
+
+
+
 
