@@ -9,111 +9,145 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-
-///
 public class ElectricityApp extends JPanel {
 
-    private final KomunalkaCalculator calculator;
-    private final FileManager fileManager;
-    private final String fileName = "Свет.txt";
-///
-    public ElectricityApp() {
-        this.calculator = new KomunalkaCalculator();
-        this.fileManager = new FileManager();
-       // showMessageDialog();
+	private final KomunalkaCalculator calculator;
+	private final FileManager fileManager;
+	final String fileName = "Свет.txt";
 
-        setLayout(new GridLayout(7, 2, 10, 10));
-        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Добавляем отступы
+	public ElectricityApp() {
+		this.calculator = new KomunalkaCalculator();
+		this.fileManager = new FileManager();
 
-        // Компоненты интерфейса
-        JTextField currentDataField = new JTextField();
+			setLayout(new GridLayout(7, 2, 10, 10));
+			setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Добавляем отступы
 
-        JTextField previousDataField = new JTextField();
+			// Компоненты интерфейса
+			JTextField currentDataField = new JTextField();
+			JTextField previousDataField = new JTextField();
+			JTextField tariffField = new JTextField();
 
-        JTextField tariffField = new JTextField();
+			JLabel consumptionLabel = new JLabel("Расход: -");
+			consumptionLabel.setFont(new Font("Arial", Font.BOLD, 16));
+			consumptionLabel.setForeground(Color.red);
 
-        JLabel consumptionLabel = new JLabel("Расход: -");
-        consumptionLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        consumptionLabel.setForeground(Color.red);
+			JLabel paymentLabel = new JLabel("К оплате: -");
+			paymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+			paymentLabel.setForeground(Color.red);
 
-        JLabel paymentLabel = new JLabel("К оплате: -");
-        paymentLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        paymentLabel.setForeground(Color.red);
+			JLabel dateTimeLabel = new JLabel("Дата и время последней операции: -");
+			dateTimeLabel.setFont(new Font("Arial", Font.BOLD, 16));
 
-        JLabel dateTimeLabel = new JLabel("Дата и время последней операции: -");
-        dateTimeLabel.setFont(new Font("Arial", Font.BOLD, 16));
+			JButton calculateButton = new JButton("Рассчитать");
+			calculateButton.setBackground(Color.green);
+			calculateButton.setFont(new Font("Arial", Font.BOLD, 16));
 
-        JButton calculateButton = new JButton("Рассчитать");
-        calculateButton.setBackground(Color.green);
-        calculateButton.setFont(new Font("Arial", Font.BOLD, 16));
-
-        JButton showHistoryButton = new JButton("Показать историю");
-        showHistoryButton.setBackground(Color.getHSBColor(0.99f, 0.29f, 0.94f));
-        showHistoryButton.setFont(new Font("Arial", Font.BOLD, 16));
+			JButton showHistoryButton = new JButton("Показать историю");
+			showHistoryButton.setBackground(Color.getHSBColor(0.99f, 0.29f, 0.94f));
+			showHistoryButton.setFont(new Font("Arial", Font.BOLD, 16));
 
 
-        // Добавляем компоненты в панель
-        add(new JLabel("Текущие показания:"));
-        add(currentDataField);
-        add(new JLabel("Предыдущие показания:"));
-        add(previousDataField);
-        add(new JLabel("Тариф (руб.):"));
-        add(tariffField);
-        add(consumptionLabel);
-        add(paymentLabel);
-        add(dateTimeLabel);
-        add(new JLabel()); // Пустое поле для выравнивания
-        add(calculateButton);
-        add(showHistoryButton);
+			// Добавляем компоненты в панель
+			add(new JLabel("Текущие показания:"));
+			add(currentDataField);
+			add(new JLabel("Предыдущие показания:"));
+			add(previousDataField);
+			add(new JLabel("Тариф (руб.):"));
+			add(tariffField);
+			add(consumptionLabel);
+			add(paymentLabel);
+			add(dateTimeLabel);
+			add(new JLabel()); // Пустое поле для выравнивания
+			add(calculateButton);
+			add(showHistoryButton);
 
-        currentDataField.addActionListener(_ -> previousDataField.requestFocus());
-        previousDataField.addActionListener(_ -> tariffField.requestFocus());
-        tariffField.addActionListener(_ -> calculateButton.doClick()); //  <-- Имитируем клик по кнопке
+			currentDataField.addActionListener(_ -> previousDataField.requestFocus());
+			previousDataField.addActionListener(_ -> tariffField.requestFocus());
+			tariffField.addActionListener(_ -> calculateButton.doClick()); //  <-- Имитируем клик по кнопке
 
-        calculateButton.addActionListener(_ -> {
-            try {
-                double currentReading = Double.parseDouble(currentDataField.getText());
-                double previousReading = Double.parseDouble(previousDataField.getText());
-                double tariff = Double.parseDouble(tariffField.getText());
+			calculateButton.addActionListener(_ -> {
+				try {
+					double currentReading = Double.parseDouble(currentDataField.getText());
+					double previousReading = Double.parseDouble(previousDataField.getText());
+					double tariff = Double.parseDouble(tariffField.getText());
 
-                // Производим расчёты
-                double consumption = calculator.calculateConsumption(currentReading, previousReading);
-                double payment = calculator.calculatePayment(consumption, tariff);
+					// Производим расчёты
+					double consumption = calculator.calculateConsumption(currentReading, previousReading);
+					double payment = calculator.calculatePayment(consumption, tariff);
 
-                // Обновляем данные на экране
-                String formattedDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+					String formattedDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+					consumptionLabel.setText(String.format("Расход: %.2f", consumption));
+					paymentLabel.setText(String.format("К оплате: %.2f руб.", payment));
+					dateTimeLabel.setText("Дата и время последней операции: " + formattedDateTime);
 
-                consumptionLabel.setText(String.format("Расход: %.2f", consumption));
-                paymentLabel.setText(String.format("К оплате: %.2f руб.", payment));
-                dateTimeLabel.setText("Дата и время последней операции: " + formattedDateTime);
+					String unit = "кВт.";
 
-                // Сохраняем данные
-                fileManager.saveToFile(fileName, formattedDateTime, currentReading, previousReading, tariff, consumption, payment);
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(this, "Введите корректные числа!", "Ошибка", JOptionPane.ERROR_MESSAGE);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Ошибка сохранения данных: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
-            }
-        });
+					fileManager.formatMeterReadingPaymentData(fileName, currentReading, previousReading, consumption, tariff, payment, unit, formattedDateTime);
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(this, "Введите корректные числа!", "Ошибка", JOptionPane.ERROR_MESSAGE);
+				}catch (IOException ex) {
+					JOptionPane.showMessageDialog(this, "Ошибка при записи в файл: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+				}
+			});
 
-        // Логика кнопки "Показать историю"
-        showHistoryButton.addActionListener(_ -> {
-            try {
-                String history = fileManager.loadFromFile(fileName);
-                if (history.isEmpty()) {
-                    JOptionPane.showMessageDialog(this, "История пуста для ресурса: Свет", "Информация", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JTextArea textArea = new JTextArea(20, 50);
-                    textArea.setText(history);
-                    textArea.setEditable(false);
+			// Логика кнопки "Показать историю"
+			showHistoryButton.addActionListener(_ -> {
+				try {
+					String history = fileManager.loadFromFile(fileName);
+					if (history.isEmpty()) {
+						JOptionPane.showMessageDialog(this, "История пуста для ресурса: Свет", "Информация", JOptionPane.INFORMATION_MESSAGE);
+					} else {
+						JTextArea textArea = new JTextArea(20, 50);
+						textArea.setText(history);
+						textArea.setEditable(true);
 
-                    JScrollPane scrollPane = new JScrollPane(textArea);
-                    JOptionPane.showMessageDialog(this, scrollPane, "История (Свет)", JOptionPane.INFORMATION_MESSAGE);
-                }
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Ошибка загрузки истории: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
-            }
-        });
-    }
+						JScrollPane scrollPane = new JScrollPane(textArea);
+						// Создаем кнопку сохранения
+						JButton saveButton = new JButton("Сохранить");
+						saveButton.setFont(new Font("Arial", Font.BOLD, 14));
+						saveButton.setBackground(new Color(144, 238, 144)); // Светло-зеленый цвет
 
-}
+						// Создаем панель для кнопки (чтобы выровнять по правому краю)
+						JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+						buttonPanel.add(saveButton);
+
+						// Создаем основную панель для содержимого
+						JPanel mainPanel = new JPanel(new BorderLayout());
+						mainPanel.add(scrollPane, BorderLayout.CENTER);
+						mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+						// Создаем диалоговое окно
+						JDialog dialog = new JDialog();
+						dialog.setTitle("История (Свет) - Редактирование");
+						dialog.setModal(true);
+						dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+						dialog.getContentPane().add(mainPanel);
+						dialog.pack();
+						dialog.setLocationRelativeTo(this);
+
+						// Обработчик кнопки сохранения
+						saveButton.addActionListener(_ -> {
+							try {
+								fileManager.textWindow(fileName, textArea.getText());
+								JOptionPane.showMessageDialog(dialog,
+										"Изменения успешно сохранены!",
+										"Успех",
+										JOptionPane.INFORMATION_MESSAGE);
+							} catch (IOException ex) {
+								JOptionPane.showMessageDialog(dialog,
+										"Ошибка при сохранении: " + ex.getMessage(),
+										"Ошибка",
+										JOptionPane.ERROR_MESSAGE);
+							}
+						});
+
+						// Показываем диалоговое окно
+						dialog.setVisible(true);
+					}
+
+				} catch (IOException ex) {
+					JOptionPane.showMessageDialog(this, "Ошибка загрузки истории: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+				}
+			});
+		}
+	}

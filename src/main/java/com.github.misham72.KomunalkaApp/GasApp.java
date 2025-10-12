@@ -20,8 +20,8 @@ public class GasApp extends JPanel {
             this.fileManager = new FileManager();
 
             setLayout(new GridLayout(7, 2, 10, 10));
+            setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Добавляем отступы
 
-            // Компоненты интерфейса
             JTextField currentDataField = new JTextField();
             JTextField previousDataField = new JTextField();
             JTextField tariffField = new JTextField();
@@ -74,18 +74,18 @@ public class GasApp extends JPanel {
                     double consumption = calculator.calculateConsumption(currentReading, previousReading);
                     double payment = calculator.calculatePayment(consumption, tariff);
 
-                    // Обновляем данные на экране
                     String formattedDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
                     consumptionLabel.setText(String.format("Расход: %.2f", consumption));
                     paymentLabel.setText(String.format("К оплате: %.2f руб.", payment));
                     dateTimeLabel.setText("Дата и время последней операции: " + formattedDateTime);
+                    String unit = "куб.м.";
 
                     // Сохраняем данные
-                    fileManager.saveToFile(fileName,formattedDateTime, currentReading, previousReading, tariff, consumption, payment);
+                   fileManager.formatMeterReadingPaymentData(fileName, currentReading, previousReading, consumption, tariff, payment, unit, formattedDateTime);
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(this, "Введите корректные числа!", "Ошибка", JOptionPane.ERROR_MESSAGE);
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(this, "Ошибка сохранения данных: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                }catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, "Ошибка при записи в файл: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
                 }
             });
 
@@ -94,19 +94,59 @@ public class GasApp extends JPanel {
                 try {
                     String history = fileManager.loadFromFile(fileName);
                     if (history.isEmpty()) {
-                        JOptionPane.showMessageDialog(this, "История пуста для ресурса: Газ", "Информация", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "История пуста для ресурса: Вода", "Информация", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JTextArea textArea = new JTextArea(20, 50);
                         textArea.setText(history);
-                        textArea.setEditable(false);
+                        textArea.setEditable(true);
 
                         JScrollPane scrollPane = new JScrollPane(textArea);
-                        JOptionPane.showMessageDialog(this, scrollPane, "История (Газ)", JOptionPane.INFORMATION_MESSAGE);
+                        // Создаем кнопку сохранения
+                        JButton saveButton = new JButton("Сохранить");
+                        saveButton.setFont(new Font("Arial", Font.BOLD, 14));
+                        saveButton.setBackground(new Color(144, 238, 144)); // Светло-зеленый цвет
+
+                        // Создаем панель для кнопки (чтобы выровнять по правому краю)
+                        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+                        buttonPanel.add(saveButton);
+
+                        // Создаем основную панель для содержимого
+                        JPanel mainPanel = new JPanel(new BorderLayout());
+                        mainPanel.add(scrollPane, BorderLayout.CENTER);
+                        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+                        // Создаем диалоговое окно
+                        JDialog dialog = new JDialog();
+                        dialog.setTitle("История (Газ) - Редактирование");
+                        dialog.setModal(true);
+                        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                        dialog.getContentPane().add(mainPanel);
+                        dialog.pack();
+                        dialog.setLocationRelativeTo(this);
+
+                        // Обработчик кнопки сохранения
+                        saveButton.addActionListener(_ -> {
+                            try {
+                                fileManager.textWindow(fileName, textArea.getText());
+                                JOptionPane.showMessageDialog(dialog,
+                                        "Изменения успешно сохранены!",
+                                        "Успех",
+                                        JOptionPane.INFORMATION_MESSAGE);
+                            } catch (IOException ex) {
+                                JOptionPane.showMessageDialog(dialog,
+                                        "Ошибка при сохранении: " + ex.getMessage(),
+                                        "Ошибка",
+                                        JOptionPane.ERROR_MESSAGE);
+                            }
+                        });
+
+                        // Показываем диалоговое окно
+                        dialog.setVisible(true);
                     }
+
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(this, "Ошибка загрузки истории: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
                 }
             });
         }
-
-    }
+}

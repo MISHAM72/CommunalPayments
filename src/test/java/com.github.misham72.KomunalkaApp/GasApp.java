@@ -9,13 +9,13 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class WaterApp extends JPanel{
+public class GasApp extends JPanel {
 
         private final KomunalkaCalculator calculator;
         private final FileManager fileManager;
-        private final String fileName = "Вода.txt";
+        private final String fileName = "Газ.txt";
 
-        public WaterApp() {
+        public GasApp() {
             this.calculator = new KomunalkaCalculator();
             this.fileManager = new FileManager();
 
@@ -42,7 +42,7 @@ public class WaterApp extends JPanel{
             calculateButton.setFont(new Font("Arial", Font.BOLD, 16));
 
             JButton showHistoryButton = new JButton("Показать историю");
-            showHistoryButton.setBackground(Color.getHSBColor(0.5f,0.5f, 0.8f));
+            showHistoryButton.setBackground(Color.yellow);
             showHistoryButton.setFont(new Font("Arial", Font.BOLD, 16));
 
             // Добавляем компоненты в панель
@@ -61,9 +61,10 @@ public class WaterApp extends JPanel{
 
             currentDataField.addActionListener(_ -> previousDataField.requestFocus());
             previousDataField.addActionListener(_ -> tariffField.requestFocus());
-            tariffField.addActionListener(_-> calculateButton.doClick ());
+            tariffField.addActionListener(_->  calculateButton.doClick());
+
             // Логика кнопки "Рассчитать"
-            calculateButton.addActionListener(_-> {
+            calculateButton.addActionListener(_ -> {
                 try {
                     double currentReading = Double.parseDouble(currentDataField.getText());
                     double previousReading = Double.parseDouble(previousDataField.getText());
@@ -78,13 +79,13 @@ public class WaterApp extends JPanel{
                     consumptionLabel.setText(String.format("Расход: %.2f", consumption));
                     paymentLabel.setText(String.format("К оплате: %.2f руб.", payment));
                     dateTimeLabel.setText("Дата и время последней операции: " + formattedDateTime);
-                    String unit = "куб.м.";
+
                     // Сохраняем данные
-                    fileManager.formatMeterReadingPaymentData(fileName, currentReading, previousReading,  consumption, tariff, payment, unit, formattedDateTime);
+                    fileManager.saveToFile(fileName,formattedDateTime, currentReading, previousReading, tariff, consumption, payment);
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(this, "Введите корректные числа!", "Ошибка", JOptionPane.ERROR_MESSAGE);
-                }catch (IOException ex) {
-                    JOptionPane.showMessageDialog(this, "Ошибка при записи в файл: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, "Ошибка сохранения данных: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
                 }
             });
 
@@ -93,59 +94,19 @@ public class WaterApp extends JPanel{
                 try {
                     String history = fileManager.loadFromFile(fileName);
                     if (history.isEmpty()) {
-                        JOptionPane.showMessageDialog(this, "История пуста для ресурса: Вода", "Информация", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "История пуста для ресурса: Газ", "Информация", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JTextArea textArea = new JTextArea(20, 50);
                         textArea.setText(history);
-                        textArea.setEditable(true);
+                        textArea.setEditable(false);
 
                         JScrollPane scrollPane = new JScrollPane(textArea);
-                        // Создаем кнопку сохранения
-                        JButton saveButton = new JButton("Сохранить");
-                        saveButton.setFont(new Font("Arial", Font.BOLD, 14));
-                        saveButton.setBackground(new Color(144, 238, 144)); // Светло-зеленый цвет
-
-                        // Создаем панель для кнопки (чтобы выровнять по правому краю)
-                        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-                        buttonPanel.add(saveButton);
-
-                        // Создаем основную панель для содержимого
-                        JPanel mainPanel = new JPanel(new BorderLayout());
-                        mainPanel.add(scrollPane, BorderLayout.CENTER);
-                        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
-
-                        // Создаем диалоговое окно
-                        JDialog dialog = new JDialog();
-                        dialog.setTitle("История (Вода) - Редактирование");
-                        dialog.setModal(true);
-                        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                        dialog.getContentPane().add(mainPanel);
-                        dialog.pack();
-                        dialog.setLocationRelativeTo(this);
-
-                        // Обработчик кнопки сохранения
-                        saveButton.addActionListener(_ -> {
-                            try {
-                                fileManager.textWindow(fileName, textArea.getText());
-                                JOptionPane.showMessageDialog(dialog,
-                                        "Изменения успешно сохранены!",
-                                        "Успех",
-                                        JOptionPane.INFORMATION_MESSAGE);
-                            } catch (IOException ex) {
-                                JOptionPane.showMessageDialog(dialog,
-                                        "Ошибка при сохранении: " + ex.getMessage(),
-                                        "Ошибка",
-                                        JOptionPane.ERROR_MESSAGE);
-                            }
-                        });
-
-                        // Показываем диалоговое окно
-                        dialog.setVisible(true);
+                        JOptionPane.showMessageDialog(this, scrollPane, "История (Газ)", JOptionPane.INFORMATION_MESSAGE);
                     }
-
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(this, "Ошибка загрузки истории: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
                 }
             });
         }
+
     }
