@@ -15,7 +15,6 @@ public class GarbageApp extends JPanel {
 	public GarbageApp() {
 		this.fileManager = new FileManager();
 
-
 		final String fileName = "Мусор.txt";
 		final long daysUntilPayment = DateCalculator.calculateDaysToNextPayment(1, 30);
 		final long daysFromPayment = DateCalculator.calculateDaysFromPreviousPayment(1, 30);
@@ -23,7 +22,6 @@ public class GarbageApp extends JPanel {
 		final LocalDate previousPayment = DateCalculator.getPreviousPaymentDate(1, 30);
 		final long priceTariff = 214;
 		final String formattedDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
-
 
 		setLayout(new GridLayout(7, 2, 10, 10));
 		setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Добавляем отступы
