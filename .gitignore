@@ -13,4 +13,4 @@
   /.vscode/
   /*.log
   .DS_Store
-  Thumbs.db
+  Thumbs.db-e "\n# Дополнительные файлы\n*.txt\n*.xml\nout/\ntarget/\n.idea/\n*.class" 
