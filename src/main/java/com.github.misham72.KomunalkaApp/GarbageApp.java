@@ -43,7 +43,6 @@ public class GarbageApp extends JPanel {
 		add(new JLabel());
 		add(new JLabel());
 
-
 		JLabel daysUntilPaymentLabel = new JLabel(" Оплата через:                        " + daysUntilPayment + " дней.");
 		daysUntilPaymentLabel.setFont(new Font("Arial", Font.BOLD, 18));
 		daysUntilPaymentLabel.setForeground(Color.red);
@@ -56,7 +55,6 @@ public class GarbageApp extends JPanel {
 		add(daysFromPaymentLabel);
 		add(new JLabel());
 		add(new JLabel());
-
 
 		JLabel priceTariffLabel = new JLabel(" Стоимость тарифа: " + priceTariff + " рублей. ");
 		priceTariffLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -134,11 +132,9 @@ public class GarbageApp extends JPanel {
 									JOptionPane.ERROR_MESSAGE);
 						}
 					});
-
 					// Показываем диалоговое окно
 					dialog.setVisible(true);
 				}
-
 			} catch (IOException ex) {
 				JOptionPane.showMessageDialog(this, "Ошибка загрузки истории: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
 			}
