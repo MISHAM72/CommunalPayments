@@ -1,0 +1,122 @@
+
+
+Version:	3.50
+CmdLine:	C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\HP\IdeaProjects\CommunalPayments\out\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME =      C:\Program Files\Java\jdk-23
+Substitute:	PATH = C:\Program Files\Java\jdk-23\bin;C:\Windows\System32;C:\Program Files\Java\jdk-19\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\apache-maven-3.9.9\bin;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Java\jdk-23\bin
+JRE paths:	     C:\Program Files\Java\jdk-23;C:\Program Files\Java\jdk-23\bin;C:\Windows\System32;C:\Program Files\Java\jdk-19\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\apache-maven-3.9.9\bin;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Java\jdk-23\bin
+Check launcher:	C:\Users\HP\IdeaProjects\CommunalPayments\out\     C:\Program Files\Java\jdk-23\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe (OK)
+Version string: 1.023.000_002 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe
+Launcher args:	-jar "C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe"
+Args length:	74/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\HP\IdeaProjects\CommunalPayments\out\CommunalPayments.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\HP\IdeaProjects\CommunalPayments\out\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME =      C:\Program Files\Java\jdk-23
+Substitute:	PATH = C:\Program Files\Java\jdk-23\bin;C:\Windows\System32;C:\Program Files\Java\jdk-19\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\apache-maven-3.9.9\bin;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;;C:\Program Files\Java\jdk-23\bin
+JRE paths:	     C:\Program Files\Java\jdk-23;C:\Program Files\Java\jdk-23\bin;C:\Windows\System32;C:\Program Files\Java\jdk-19\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\apache-maven-3.9.9\bin;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;;C:\Program Files\Java\jdk-23\bin
+Check launcher:	C:\Users\HP\IdeaProjects\CommunalPayments\out\     C:\Program Files\Java\jdk-23\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe (OK)
+Version string: 1.023.000_002 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe
+Launcher args:	-jar "C:\Users\HP\IdeaProjects\CommunalPayments\out\CommunalPayments.exe"
+Args length:	73/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\HP\IdeaProjects\CommunalPayments\out\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = C:\Program Files\Java\jdk-23
+Substitute:	PATH = C:\Windows\System32;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Program Files\Java\jdk-23\bin;C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;"C:\Program Files\PowerShell\7\;";;C:\Program Files\Java\jdk-23\bin
+JRE paths:	C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Program Files\Java\jdk-23\bin;C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;"C:\Program Files\PowerShell\7\;";;C:\Program Files\Java\jdk-23\bin
+Check launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe (OK)
+Version string: 1.023.000_002 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe
+Launcher args:	-jar "C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe"
+Args length:	74/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\HP\IdeaProjects\CommunalPayments\out\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = C:\Program Files\Java\jdk-23
+Substitute:	PATH = C:\Windows\System32;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Program Files\Java\jdk-23\bin;C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;"C:\Program Files\PowerShell\7\;";C:\Users\HP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-23\bin
+JRE paths:	C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Program Files\Java\jdk-23\bin;C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;"C:\Program Files\PowerShell\7\;";C:\Users\HP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-23\bin
+Check launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe (OK)
+Version string: 1.023.000_002 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe
+Launcher args:	-jar "C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe"
+Args length:	74/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\HP\IdeaProjects\CommunalPayments\out\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = C:\Program Files\Java\jdk-23
+Substitute:	PATH = C:\Windows\System32;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Program Files\Java\jdk-23\bin;C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;"C:\Program Files\PowerShell\7\;";C:\Users\HP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-23\bin
+JRE paths:	C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Program Files\Java\jdk-23\bin;C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;"C:\Program Files\PowerShell\7\;";C:\Users\HP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-23\bin
+Check launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe (OK)
+Version string: 1.023.000_002 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe
+Launcher args:	-jar "C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe"
+Args length:	74/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\HP\IdeaProjects\CommunalPayments\out\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = C:\Program Files\Java\jdk-23
+Substitute:	PATH = C:\Windows\System32;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Program Files\Java\jdk-23\bin;C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;"C:\Program Files\PowerShell\7\;";C:\Users\HP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-23\bin
+JRE paths:	C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Users\HP\go\bin;C:\Program Files\Java\jdk-23\bin;C:\Program Files\Java\jdk-23;C:\Windows\System32;C:\Program Files\Java\jdk-23\bin;C:\Program Files\apache-maven-3.9.9\apache-maven\bin;C:\Users\HP\scoop\shims;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\go\bin;C:\Users\HP\IdeaProjects;C:\Program Files\Git\cmd;"C:\Program Files\PowerShell\7\;";C:\Users\HP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-23\bin
+Check launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe (OK)
+Version string: 1.023.000_002 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-23\bin\javaw.exe
+Launcher args:	-jar "C:\Users\HP\IdeaProjects\CommunalPayments\out\ CommunalPayments.exe"
+Args length:	74/32768 chars
+Exit code:	0
